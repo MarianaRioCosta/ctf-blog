@@ -24,7 +24,7 @@ export const navBarConfig: NavBarConfig = {
     LinkPreset.About,
     {
       name: 'GitHub',
-      url: 'https://github.com/MarianaRioCosta/ctf-blog',
+      url: 'https://github.com/MarianaRioCosta/',
       external: true,
     },
   ],
