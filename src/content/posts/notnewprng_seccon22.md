@@ -3,7 +3,7 @@ title: Not New PRNG, SECCON ﬁnals 2022
 published: 2024-03-29
 description: ''
 image: ''
-tags: [LLL, Enumeration]
+tags: [Crypto, LLL, Enumeration]
 category: 'Writeups'
 draft: false 
 ---
