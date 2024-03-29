@@ -4,7 +4,7 @@ CTF player @ STT
 
 Mathematics and Computation - 2nd year, bachelors @ IST - Lisbon
 
-
+Also on [Cryptohack](https://cryptohack.org/user/lizardqueen/):)
 
 
 > ### Sources of images used in this site
