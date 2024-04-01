@@ -102,7 +102,7 @@ We can then use the result and coefficients of $x_0, x_1, x_2, x_3$ in each equa
 
 My first try was using `LLL`, but that was not enough to get the solution I was looking for. 
 
-After spending some time reading the [fpylll documentation](https://github.com/fplll/fpylll), I finally to enumerate the lattice vectors and get the one I was looking for.
+After spending some time reading the [fpylll documentation](https://github.com/fplll/fpylll), I finally managed to enumerate the lattice vectors and get the one I was looking for.
 
 
 ## Solve Script
