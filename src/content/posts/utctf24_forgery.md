@@ -40,7 +40,7 @@ I also found various implementations of the curves, but [this one](https://githu
 
 The **attack** works in the following way:
 
-* Connect to the server and recieve it's public key, $pk_1$
+* Connect to the server and recieve it's public key, $ pk_1$
 
 * Choose a secret value $sk_2$, in this writeup, I use $sk_2 = 3$
 
@@ -54,7 +54,7 @@ The **attack** works in the following way:
 
 The signature verification will work because:
 
-$$ e(g_1, \gamma) = e(g_1, sk_2 \cdot H(m)) = e(sk_2 g_1, sk_2 \cdot H(m)) = e(pk_1 + pk_2', H(m)) = e(pk_{agg}, H(m)) $$
+$$ e(g_1, \gamma) = e(g_1, sk_2 \cdot H(m)) = e(sk_2 g_1, H(m)) = e(pk_1 + pk_2', H(m)) = e(pk_{agg}, H(m)) $$
 
 
 ### Solve Script

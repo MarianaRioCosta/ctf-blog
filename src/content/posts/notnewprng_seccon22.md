@@ -69,6 +69,41 @@ print(f"ct = 0x{ct.hex()}")
 
 Finding the lattice for this challenge was not hard, but i found it a good way to practice enumeration.
 
+From the source, I took out the following equations:
+
+* $x_4 = a x_0 + b x_1 + c x_2 + d x_3 + e \pmod p$
+
+* $x_5 = a x_1 + b x_2 + c x_3 + d x_4 + e \pmod p$
+
+* $x_6 = a x_2 + b x_3 + c x_4 + d x_5 + e \pmod p$
+
+Where $a,b,c,d, x_4, x_5, x_6, p$ are known.
+
+By expanding the equations above on the known terms (and $e$), we have:
+
+* $x_4 = a x_0 + b x_1 + c x_2 + d x_3 + e \pmod p$
+
+* $x_5 = ad x_0 + (a + bd) x_1 + (b + cd) x_2 + (c + d^2) x_3 + (1 + d) e \pmod p$
+
+* $x_6 = (ca + ad^2) x_0 + (cb + d(a + bd)) x_1 + (a + c^2 + d(b + cd)) x_2 + (b + cd + d(c + d^2)) x_3 + (1 + c + d(1 + d)) e \pmod p$
+
+Now, we can remove the known $e$ from these expressions by calculating:
+
+* $x_5 - (d+1)*x_4 \pmod p$
+
+* $x_6 - (d^2+c+d+1)*x_4 \pmod p$
+
+* $x_6 - x_5 - (d^2+c)*x_4 \pmod p$
+
+Since we know $a,b,c,d, x_4, x_5, x_6, p$, we can calculate the value of each expression.
+This will result in a system of equations with 4 variables and 3 equations, and therefore it has more than one solution. Whatever, all our variables have values between 1 and $2^{64}$.
+
+We can then use the result and coefficients of $x_0, x_1, x_2, x_3$ in each equation to generate the lattice for our problem.
+
+My first try was using `LLL`, but that was not enough to get the solution I was looking for. 
+
+After spending some time reading the [fpylll documentation](https://github.com/fplll/fpylll), I finally to enumerate the lattice vectors and get the one I was looking for.
+
 
 ## Solve Script
 
