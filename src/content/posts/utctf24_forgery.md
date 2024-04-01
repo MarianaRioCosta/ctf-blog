@@ -10,7 +10,7 @@ draft: false
 
 ## Overview
 
-My team solved this challenge exactly 16 minutes after the ending of the CTF. During the competition me and my team solved this with about 4 sage and C++ scripts that complemented each other.
+Solved this challenge exactly 16 minutes after the ending of the CTF. Me and my team solved this with about 4 sage and C++ scripts that complemented each other.
 
 With this solved, all Crypto was cleared:)
 
@@ -37,6 +37,24 @@ After some (painful) reverse, one can see that the connection is a BLS12-381 sig
 After some quick googling on attacks on this curve, I figured the attack to do was a [Rogue Key Attack](https://hackmd.io/@benjaminion/bls12-381#Rogue-key-attacks). We chose 3 for our key.
 
 I also found various implementations of the curves, but [this one](https://github.com/AntelopeIO/bls12-381/tree/main) looked like the one used the binary, so my team and I used it.
+
+The **attack** works in the following way:
+
+* Connect to the server and recieve it's public key, $pk_1$
+
+* Choose a secret value $sk_2$, in this writeup, I use $sk_2 = 3$
+
+* Calculate $pk_2' = sk_2 \cdot g_1 - pk_1$ and send it to the server
+
+* After this, the agregate public key will be $pk_{agg} = pk_1 + pk_2'$
+
+* Hash and sign the message `m = "Bob and I signed the deal."`, obtaining $\gamma = sk_2 \cdot H(m)$, and send it to the server
+
+* Recieve and submit the flag:)
+
+The signature verification will work because:
+
+$$ e(g_1, \gamma) = e(g_1, sk_2 \cdot H(m)) = e(sk_2 g_1, sk_2 \cdot H(m)) = e(pk_1 + pk_2', H(m)) = e(pk_{agg}, H(m)) $$
 
 
 ### Solve Script
