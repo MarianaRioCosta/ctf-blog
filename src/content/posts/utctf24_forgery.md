@@ -1,9 +1,8 @@
 ---
-title: UTCTF 2024, Forgery
+title: Forgery, UTCTF 2024
 published: 2024-04-01
 description: Writeup of Forgery from UTCTF 2024
-image: ''
-tags: ['Crypto','Rev,'EC', 'BLS12-381']
+tags: ['Crypto','Rev','EC', 'BLS12-381']
 category: 'Writeups'
 draft: false 
 ---
@@ -169,8 +168,5 @@ int main(int argc, char * argv[]) {
 }
 
 ```
-
-
-
 
 **Flag: `utflag{glory_to_arstotzka_and_cryptorev}`**
