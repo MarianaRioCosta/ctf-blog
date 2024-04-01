@@ -87,7 +87,7 @@ By expanding the equations above on the known terms (and $e$), we have:
 
 * $x_6 = (ca + ad^2) x_0 + (cb + d(a + bd)) x_1 + (a + c^2 + d(b + cd)) x_2 + (b + cd + d(c + d^2)) x_3 + (1 + c + d(1 + d)) e \pmod p$
 
-Now, we can remove the known $e$ from these expressions by calculating:
+Now, we can remove $e$ from these expressions by calculating:
 
 * $x_5 - (d+1)*x_4 \pmod p$
 
