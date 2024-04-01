@@ -32,7 +32,7 @@ We where given the striped and non striped version of the binary + the remote co
 
 I'd say that finding the attack to do was easy, my struggle was implementing it.
 
-After some reverse, one can see that the connection is a BLS12-381 signature scheme. We are provided the public key of the server and are expected to send our public key and the signature of the message `Bob and I signed the deal.`, found in the binary.
+After some (painful) reverse, one can see that the connection is a BLS12-381 signature scheme. We are provided the public key of the server and are expected to send our public key and the signature of the message `Bob and I signed the deal.`, found in the binary.
 
 After some quick googling on attacks on this curve, I figured the attack to do was a [Rogue Key Attack](https://hackmd.io/@benjaminion/bls12-381#Rogue-key-attacks). We chose 3 for our key.
 
@@ -123,7 +123,7 @@ print(pk2)
 ```
 
 Lastly, this C++ script signed the message `Bob and I signed the deal.` in `G2`. 
-We also used the function `toAffineBytesLE` from this C++ script to serialized the coordinates back again in the curve `G1`, which we submited to the server in hex.
+We also used the function `toAffineBytesLE` from this C++ script to serialize the coordinates back again in the curve `G1`, which we submited to the server in hex.
 
 ```cpp=
 
