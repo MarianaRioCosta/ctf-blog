@@ -8,6 +8,11 @@ draft: false
 ---
 
 
+## Overview
+
+This writeup is also present in my team's website [here](https://sectt.github.io/writeups/Plaid24/DHCPPP/README).
+
+
 ### Given:
 
 ```
