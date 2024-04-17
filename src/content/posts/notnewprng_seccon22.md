@@ -1,8 +1,7 @@
 ---
 title: Not New PRNG, SECCON ﬁnals 2022
 published: 2024-03-29
-description: ''
-image: ''
+description: Writeup of Not New PRNG from SECCON ﬁnals 2022
 tags: [Crypto, LLL, Enumeration]
 category: 'Writeups'
 draft: false 
@@ -16,7 +15,7 @@ Recently, I learned that this random number generator is called "MRG".
 
 ### Source:
 
-```python=
+```python
 import os
 import random
 from Crypto.Cipher import AES
@@ -107,7 +106,7 @@ After spending some time reading the [fpylll documentation](https://github.com/f
 
 ## Solve Script
 
-```python=
+```python
 
 import random
 import numpy as np

@@ -22,7 +22,7 @@ Descriptions are hard, but are decryptions?
 
 ### Source:
 
-```python=
+```python
 
 #!/usr/bin/env python3
 import struct, hashlib, random, os
@@ -121,7 +121,7 @@ Notice the 3 main values:
 
 On line 11, we have:
 
-```python=
+```python
 sample = lambda rng: [bin(rng.getrandbits(w)).count('1') - w//2 for _ in range(n)] 
 ```
 
@@ -136,7 +136,7 @@ My attack consisted of 2 steps:
     Collect and save "side choices" for values of `c`, where `c` is a constant polynomial
     Let `d = cs`. Assuming `d[0] < q/2`, we do all the encrypted message comparisons to figure out which side of q/2 each coefficient is on.
 
-```python=
+```python
     c = ppoly([0]*128+[1]+[0]*127)
     c = ppoly([1]+[0]*255)
     c = ppoly([0]*128+[q//4+1]+[0]*127)
@@ -158,7 +158,7 @@ My attack consisted of 2 steps:
 My exploit during the competition was really messy, but I don't wanna mess it up by fixing it so much time after the competition, so here goes nothing:
 
 
-```python=
+```python
 
 import struct, hashlib, random, os
 from Crypto.Cipher import AES

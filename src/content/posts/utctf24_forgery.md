@@ -63,7 +63,7 @@ Our solve process was the following:
 
 First, we connected to the server, converted the hex public key to a bytearray and inserted it to a C++ script as `input`: 
 
-```cpp=
+```cpp
 
 #include <chrono>
 #include <bls12-381/bls12-381.hpp>
@@ -104,7 +104,7 @@ int main(int argc, char * argv[]) {
 
 This returned the point coordinates to use in this sage script:
 
-```python=
+```python
 
 from hashlib import sha256
 
@@ -143,7 +143,7 @@ print(pk2)
 Lastly, this C++ script signed the message `Bob and I signed the deal.` in `G2`. 
 We also used the function `toAffineBytesLE` from this C++ script to serialize the coordinates back again in the curve `G1`, which we submited to the server in hex.
 
-```cpp=
+```cpp
 
 #include <chrono>
 #include <bls12-381/bls12-381.hpp>
