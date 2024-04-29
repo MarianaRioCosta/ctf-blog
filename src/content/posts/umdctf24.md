@@ -1,5 +1,5 @@
 ---
-title: Breaking AES - less rounds and bigger blocks
+title: Breaking (H)AES - UMDCTF24
 published: 2024-04-29
 description: '4 and 5 rounds and blocks with 64 bytes'
 tags: [Crypto, AES, Cryptanalysis]
@@ -10,7 +10,7 @@ draft: false
 ## Overview
 
 This weekend me and my team played UMDCTF 24. We got 3rd place overall, 2nd place in the student division.
-Two of the crypto challenges, `haes` and `haes2`, we based of a modified version of AES. It operated on a $4 \times 4 \times 4$ state matrix rather than the usual $4 \times 4$ state matrix of AES. However, many of the operations remained the same, making it vulnerable to the same types of attacks as AES. The attacks are pretty standard for block ciphers, so I decided to write this post as a walkthrough to this type of challenges and a deep dive into the Cryptanalysis of Block Ciphers.
+Two of the crypto challenges, `haes` and `haes2`, were based of a modified version of AES. It operated on a $4 \times 4 \times 4$ state matrix rather than the usual $4 \times 4$ state matrix of AES. However, many of the operations remained the same, making it vulnerable to the same types of attacks as AES. The attacks are pretty standard for block ciphers, so I decided to write this post as a walkthrough to this type of challenges and a deep dive into the Cryptanalysis of Block Ciphers.
 
 ### Given:
 
@@ -64,12 +64,7 @@ Our $4 \times 4 \times 4$ state can be seen as a rubix cube. `shift planes` can 
 
 Therefore, in round 1, we have (active bytes in white):
 
-| :white_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: |
-| :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: |
-| :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: |
-
+[round1](haes/1.png)
 
 `add_round_key` and `sub_bytes_steps` work byte-to-byte. Therefore, the activity/inactivity state of each byte remains invariant. `shift_planes` step fixes the first byte, mantaining the representation above.
 
@@ -77,39 +72,21 @@ However, `mix_columns` is more complicated. In general, mixing the first column 
 
 Lastly, `add_round_key` preserves active/inactive bytes. Therefore, at the start of round 2 we have:
 
-| :white_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| :white_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: |
-| :white_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: |
-| :white_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: |
-
+[round1-end](haes/2.png)
 
 Round 2 consists of `sub_bytes -> shift_planes -> mix_columns -> add_round_key`. `sub_bytes` does nothing to our set, as seen before.
 
 In `shift_planes`, our active bytes are now moved around. The bytes that were previously all in the same column are moved to a different column.
 
-| :white_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| :black_large_square: | :white_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: |
-| :black_large_square: | :black_large_square: | :white_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: |
-| :black_large_square: | :black_large_square: | :black_large_square: | :white_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: |
+[round2](haes/3.png)
 
 `mix_columns` turns our 4 active bytes into 16 and `add_round_key` preserves the state.
 
-| :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: |
-| :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: |
-| :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: | :black_large_square: |
+[round2-end](haes/4.png)
 
 Round 3 is very similar to round 2, we end up with all 64 bytes being active after the 4th `add_round_key`.
 
-| :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: |
-| :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: |
-| :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: | :white_large_square: |
-
+[round3](haes/5.png)
 
 In our set of 256 states, each byte position can now take all possible values. This is extremely unlikely to occur with random 256 plaintexts, suggesting that there's still some information left for us to use.
 
@@ -117,11 +94,7 @@ Looking into round 4, `sub_bytes` and `shift_planes` do nothing to our state, ei
 bytes together, leading to inactive bytes. 
 However, there is a weaker property that holds: the XOR-sum of the bytes in each position is still 0, since `mix_columns` is linear with respect to the XOR operation. Let's denote this property with the collor yellow.
 
-| :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: |
-| :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: |
-| :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: | :yellow_large_square: |
+[round4](haes/6.png)
 
 The `add_round_key` operation still preserves our yellow bytes, so we can move onto the final round.
 
