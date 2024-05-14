@@ -4,6 +4,8 @@ CTF player @ STT
 
 Mathematics and Computation - 2nd year, bachelors @ IST - Lisbon
 
+I'm mostly interested in cryptography and reverse engeneering.
+
 Also on [Cryptohack](https://cryptohack.org/user/lizardqueen/):)
 
 

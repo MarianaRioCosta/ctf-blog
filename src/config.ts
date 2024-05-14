@@ -7,8 +7,8 @@ import type {
 import { LinkPreset } from './types/config'
 
 export const siteConfig: SiteConfig = {
-  title: 'CTF writeups',
-  subtitle: 'lizardqueen',
+  title: 'lizardqueen',
+  subtitle: 'CTF writeups and other notes',
   lang: 'en',
   themeHue: 250,
   banner: {
@@ -33,7 +33,7 @@ export const navBarConfig: NavBarConfig = {
 export const profileConfig: ProfileConfig = {
   avatar: 'assets/images/avatar.jpg',
   name: 'lizardqueen',
-  bio: 'CTF player @ STT',
+  bio: 'Cryptography and Reverse Engeneering Enthusiast',
   links: [
     {
       name: 'GitHub',
