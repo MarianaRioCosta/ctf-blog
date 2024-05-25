@@ -1,3 +1,7 @@
+# BLOG
+
+Access my blog on https://ctf.l1z4rdq.com/
+
 # 🍥Fuwari
 
 A static blog template built with [Astro](https://astro.build).
