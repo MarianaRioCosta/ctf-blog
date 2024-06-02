@@ -2,11 +2,16 @@
 
 CTF player @ STT
 
-Mathematics and Computation - 2nd year, bachelors @ IST - Lisbon
+Mathematics and Computation Student - 2nd year, bachelors @ IST - Lisbon
 
-I'm mostly interested in cryptography and reverse engeneering.
+I'm mostly interested in cryptography and reverse engeneering (mainly malware re).
 
-Also on [Cryptohack](https://cryptohack.org/user/lizardqueen/):)
+Currently doing research on the complexity of problems in lattices and codes.
+
+Feel free to contact me at ctf@l1z4rdq.com
+
+Here's me on [Cryptohack](https://cryptohack.org/user/lizardqueen/):)
+
 
 
 > ### Sources of images used in this site

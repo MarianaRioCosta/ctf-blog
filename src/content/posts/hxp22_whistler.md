@@ -2,8 +2,8 @@
 title: Whistler, hxp ctf 2022 
 published: 2024-03-29
 description: Writeup of whistler from hxp ctf 2022
-tags: [CTF, Ring-LWE, KEM]
-category: 'Crypto'
+tags: [Crypto, Ring-LWE, KEM]
+category: 'Writeups'
 draft: false 
 ---
 

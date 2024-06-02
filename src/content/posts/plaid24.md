@@ -2,8 +2,8 @@
 title: DHCPPP, PlaidCTF 2024
 published: 2024-04-17
 description: Writeup of DHCPPP from plaid ctf 2024
-tags: [CTF, ChaCha20, Poly1305, nonce]
-category: 'Crypto'
+tags: [Crypto, ChaCha20, Poly1305, nonce]
+category: 'Writeups'
 draft: false 
 ---
 
