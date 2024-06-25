@@ -3,7 +3,7 @@ title: Forgery, UTCTF 2024
 published: 2024-04-01
 description: Writeup of Forgery from UTCTF 2024
 tags: ['Crypto','Rev','EC', 'BLS12-381']
-category: 'Writeups'
+category: 'Challenges'
 draft: false 
 ---
 

@@ -3,7 +3,7 @@ title: Breaking (H)AES - UMDCTF24
 published: 2024-04-29
 description: '4 and 5 rounds and blocks with 64 bytes'
 tags: [Crypto, AES, Cryptanalysis]
-category: 'Writeups'
+category: 'Challenges'
 draft: false 
 ---
 
