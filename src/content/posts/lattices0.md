@@ -12,7 +12,7 @@ draft: false
 
 ## Lattices?
 
-This first post will be a small introduction. In the following posts, I plan to write in more depth about lattice reductions, tricks, problems and post quantum, among others. I'm in exam season right now but when I have time I'll write more.
+This first post will be a small introduction. In the following posts, I plan to write in more depth about lattice reductions, tricks, problems and post quantum, among others. 
 
 ## Background
 
@@ -178,9 +178,7 @@ Like I said in the beginning, I plan to follow up with more writeups and posts a
 
 ## Last remarks
 
-For now, here's a small introduction to lattices in crypto. 
-
-**LLL: Live, Love, LATTICEEEEE** :)
+For now, here's a small introduction to lattices in crypto (mostly CTF this time). 
 
 If you have any doubts and there's anything lattice-related topic or challenge you'd like to read about, feel free to [contact me](ctf@l1z4rdq.com)! 
 
