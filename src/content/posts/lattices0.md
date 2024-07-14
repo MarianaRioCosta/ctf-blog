@@ -22,10 +22,7 @@ The lattice $\mathcal{L}$ is then the integer linear combinations of the basis v
 
 Note that the basis of a lattice is not unique:
 
-<p align="center">
-  <img src="./lattices/basis.png" width="200" height="200"/>
-</p>
-
+<img src="./lattices/basis.png" width="200" height="200"/>
 
 
 ## Properties
@@ -34,9 +31,8 @@ We've seen that, given two sets of vectors, they are basis for the same lattice 
 
 The **fundamental parallelepiped** is a single *enclosed region* defined as: $\mathcal{P} = \{ \sum_{i=1}^{m} a_i b_i \text{ | } a_i \in [0,1) \}$.
 
-<p align="center">
-  <img src="./lattices/paralelo.png" width="200" height="200"/>
-</p>
+
+<img src="./lattices/paralelo.png" width="200" height="200"/>
 
 
 Why is it important? Because $|det(\mathcal{L})| = vol(\mathcal{P}) = |det(B)|$, and here's our invariant! Note that the volume of the fundamental parallelepiped is independent of the basis **B**. Another useful result is the following:
