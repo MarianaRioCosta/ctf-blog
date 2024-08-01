@@ -9,7 +9,7 @@ draft: false
 
 ## Overview
 
-The past few days I've been participating at this year's CISPA (Helmholtz Center for Information Security) Summer School on Privacy-Preserving Cryptography. In the last day, there was a "crypto challenge", for which there were only 2 solves, one of them from my team: me and two friends from about:blankets - Giacomo and Eugenio. (picture of the prize in the end^^)
+In the past few days I've been at this year's CISPA (Helmholtz Center for Information Security) Summer School on Privacy-Preserving Cryptography. In the last day, there was a "crypto challenge", for which there were only 2 solves, one of them from my team: me and two friends from about:blankets - Giacomo and Eugenio. (picture of the prize in the end^^)
 
 ### Description:
 
