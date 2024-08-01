@@ -1,27 +1,59 @@
-
 # BLOG
 
 Access my blog on https://ctf.l1z4rdq.com/
 
+# 🍥Fuwari
 
-![screenshot of the website](./src/assets/images/screenshot.png)
+A static blog template built with [Astro](https://astro.build).
 
-# Eleventy Academic Blog Template
+[**🖥️Live Demo (Vercel)**](https://fuwari.vercel.app)&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;[**🌏中文 README**](https://github.com/saicaca/fuwari/blob/main/README.zh-CN.md)&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;[**📦Old Hexo Version**](https://github.com/saicaca/hexo-theme-vivia)
 
-This is an academic blog template for [11ty](https://11ty.dev/) static site builder.
+![Preview Image](https://raw.githubusercontent.com/saicaca/resource/main/fuwari/home.png)
 
-It features:
+## ✨ Features
 
-- Table of contents - [markdown-it-table-of-contents](https://github.com/cmaas/markdown-it-table-of-contents)
-- Citations and bibliography - [markdown-it-biblatex](https://github.com/arothuis/markdown-it-biblatex)
-- Mathjax3 math expressions - [markdown-it-mathjax3](https://github.com/tani/markdown-it-mathjax3#readme)
-- Code syntax highlighting - [markdown-it-highlightjs](https://github.com/valeriangalliat/markdown-it-highlightjs)
-- Color theme switch
-- RSS/Atom feed
-- Optimized styles for printing
-- Minified JS and CSS for small file sizes
+- [x] Built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com)
+- [x] Smooth animations and page transitions
+- [x] Light / dark mode
+- [x] Customizable theme colors & banner
+- [x] Responsive design
+- [ ] Comments
+- [x] Search
+- [ ] TOC
 
-Configure the application data (like the title of the site and name of the author) in the `src/data` directory files.
-The bibliography is managed in `assets/bibliography.bib`.
-Refer to individual packages to see their usage.
-See the [live example here](https://eleventy-academic-template.netlify.app/).
+## 🚀 How to Use
+
+1. [Generate a new repository](https://github.com/saicaca/fuwari/generate) from this template or fork this repository.
+2. To edit your blog locally, clone your repository, run `pnpm install` AND `pnpm add sharp` to install dependencies.  
+   - Install [pnpm](https://pnpm.io) `npm install -g pnpm` if you haven't.
+3. Edit the config file `src/config.ts` to customize your blog.
+4. Run `pnpm new-post <filename>` to create a new post and edit it in `src/content/posts/`.
+5. Deploy your blog to Vercel, Netlify, GitHub Pages, etc. following [the guides](https://docs.astro.build/en/guides/deploy/).
+
+## ⚙️ Frontmatter of Posts
+
+```yaml
+---
+title: My First Blog Post
+published: 2023-09-09
+description: This is the first post of my new Astro blog.
+image: /images/cover.jpg
+tags: [Foo, Bar]
+category: Front-end
+draft: false
+---
+```
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                             | Action                                           |
+|:------------------------------------|:-------------------------------------------------|
+| `pnpm install` AND `pnpm add sharp` | Installs dependencies                            |
+| `pnpm dev`                          | Starts local dev server at `localhost:4321`      |
+| `pnpm build`                        | Build your production site to `./dist/`          |
+| `pnpm preview`                      | Preview your build locally, before deploying     |
+| `pnpm new-post <filename>`          | Create a new post                                |
+| `pnpm astro ...`                    | Run CLI commands like `astro add`, `astro check` |
+| `pnpm astro --help`                 | Get help using the Astro CLI                     |
