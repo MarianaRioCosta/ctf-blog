@@ -3,7 +3,7 @@ title: Whistler, hxp ctf 2022
 published: 2024-03-29
 description: Writeup of whistler from hxp ctf 2022
 tags: [Crypto, Ring-LWE, KEM]
-category: 'Challenges'
+category: 'Writeups'
 draft: false 
 ---
 
@@ -11,7 +11,6 @@ draft: false
 ## Overview
 
 Although I solved this challenge during competition, about two years ago, it was the first time I played in person with my team mates, so I decided to have this writeup as the first post for "sentimental reasons":).
-
 
 
 ### Description:
