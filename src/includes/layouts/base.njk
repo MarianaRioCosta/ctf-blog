@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include "head.njk" %}
+  <body>
+    <div class="main-container">
+      <aside class="side-nav">
+        <div class="side-nav-inner">
+          <a class="site-title" href="/">
+            {{ metadata.title }}
+          </a>
+          {% include "nav.njk" %}
+          <div class="controls">
+            <details>
+              <summary>Controls</summary>
+              {% include "theme-switch.njk" %}
+              {% include "font-select.njk" %}
+              <div>
+                <button onclick="print()">Print this page</button>
+              </div>
+            </details>
+          </div>
+        </div>
+      </aside>
+      <main>
+        {% include "breadcrumbs.njk" %}
+        {{ content | safe }}
+      </main>
+    </div>
+    {% include "footer.njk" %}
+  </body>
+  {% set js %} {% include "global.js" %} {% endset %}
+  <script>
+  {{ js | jsmin | safe }}
+  </script>
+</html>
