@@ -151,7 +151,6 @@ We can now send only 3 plaintexts and have only 4 rounds. In this case `differen
 
 Check out the intended solve script [here](https://github.com/UMD-CSEC/UMDCTF-2024-Challenges/blob/main/crypto/haes-2/solve.py).
 
-(I'm working on a more detailed explanation for this challenge, will update soon, I hope)
 
 
 ## More on Cryptanalysis
