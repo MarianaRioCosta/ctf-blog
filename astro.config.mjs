@@ -10,6 +10,9 @@ import remarkMath from "remark-math"
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs"
 import svelte from "@astrojs/svelte"
 import swup from '@swup/astro';
+//import rehypeKatex from 'rehype-katex'; // relevant
+//import remarkMath from 'remark-math';   // relevant
+
 
 const oklchToHex = (str) => {
   const DEFAULT_HUE = 250
@@ -53,7 +56,7 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkMath, remarkReadingTime],
     rehypePlugins: [
-      rehypeKatex,
+      rehypeKatex, 
       rehypeSlug,
       [
         rehypeAutolinkHeadings,

@@ -268,6 +268,7 @@ Roughly, the attack works in the following way:
 4. Construct $\ell + 1$ forgeries using the rest of the ROS solution:
 
 $$ c_i' = H(\prod_{j=1}^{\ell}R_j^{A_{i,j}}, m_i)$$
+
 $$ s_i' = \sum_{j=1}^{\ell}A_{i,j} \cdot s_j$$
 
 ### Solve Script

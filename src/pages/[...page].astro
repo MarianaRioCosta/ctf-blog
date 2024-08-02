@@ -6,6 +6,7 @@ import {getSortedPosts} from "../utils/content-utils";
 import {getPostUrlBySlug} from "../utils/url-utils";
 import {PAGE_SIZE} from "../constants/constants";
 import PostPage from "../components/PostPage.astro";
+import "./katex.min.css";
 
 export async function getStaticPaths({ paginate }) {
     const allBlogPosts = await getSortedPosts();
