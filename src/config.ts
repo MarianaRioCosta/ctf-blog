@@ -27,14 +27,6 @@ export const navBarConfig: NavBarConfig = {
       url: 'https://github.com/MarianaRioCosta/',
       external: true,
     },
-  ],
-}
-
-export const navBarConfig: NavBarConfig = {
-  links: [
-    LinkPreset.Home,
-    LinkPreset.Archive,
-    LinkPreset.About,
     {
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/in/mariana-rio-costa-90a47921a/',
@@ -42,6 +34,7 @@ export const navBarConfig: NavBarConfig = {
     },
   ],
 }
+
 
 export const profileConfig: ProfileConfig = {
   avatar: 'assets/images/avatar.jpg',
