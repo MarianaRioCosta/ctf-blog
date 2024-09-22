@@ -1,12 +1,12 @@
 # About
 
-CTF player @ STT
+Team Captain and CTF player @ STT
 
 TeamPortugal @ ECSC 2023, 2024 
 
-<!-- TeamEurope @ ICC 2024 -->
+TeamEurope @ ICC 2024 
 
-Mathematics and Computation Student - 2nd year, bachelors @ IST - Lisbon
+Mathematics and Computation Student - 3nd year, bachelors @ IST - Lisbon
 
 I'm mostly interested in post-quantum cryptography, mainly lattices and codes.
 
