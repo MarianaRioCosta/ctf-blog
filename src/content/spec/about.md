@@ -6,6 +6,8 @@ TeamPortugal @ ECSC 2023, 2024
 
 TeamEurope @ ICC 2024 
 
+TeamEurope Captain @ Kunoichi Cyber Games 2024 
+
 Mathematics and Computation Student - 3nd year, bachelors @ IST - Lisbon
 
 I'm mostly interested in post-quantum cryptography, mainly lattices and codes.
