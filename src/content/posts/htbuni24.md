@@ -39,7 +39,7 @@ The last objective is clear: steal the legendary artifact called "The Starry Spu
 
 ## The Protocol
 
-The first thing we noticed was the comment in line 15 of [server.py](<htb24/source/server.py>)
+The first thing we noticed was the comment in line 15 of [server.py](<htb24/source/server>)
 
 `# Python implementation of the Frame-based QKD protocol described here : https://www.mdpi.com/2073-8994/12/6/1053`
 
@@ -86,7 +86,7 @@ if alice_key != bob_key:
 self.shared_key = alice_key.encode()
 ```
 
-Our exploit uses a flaw in [Bob](<htb24/source/bob.py>)'s key generation. Let's focus on that part of the code:
+Our exploit uses a flaw in [Bob](<htb24/source/bob>)'s key generation. Let's focus on that part of the code:
 
 ### Bob's Key Generation
 
@@ -106,12 +106,12 @@ def generate_shared_key(self, frames, ambiguous_frames, sifting_strings):
     return shared_secret
 ```
 
-This function only depends on it's arguments (`frames`, `ambiguous_frames` and `sifting_strings`), some hardcoded constants (`BOB_MR_DERIVATION` and `KEY_DERIVATION`, which are given to us in the [helpers](<htb24/source/helpers.py>)), and `self.measurement_basis`, which we will recover. 
+This function only depends on it's arguments (`frames`, `ambiguous_frames` and `sifting_strings`), some hardcoded constants (`BOB_MR_DERIVATION` and `KEY_DERIVATION`, which are given to us in the [helpers](<htb24/source/helpers>)), and `self.measurement_basis`, which we will recover. 
 
 ### Analysing the use of Bob's Measurement Basis
 
 The `measurement_basis` seems to be chosen securely. 
-According to `line 91` of [Bob's source](<htb24/source/bob.py>), we only need to recover the basis involved in non-ambiguous frames. Fortunately, those are exactly the ones that we can recover.
+According to `line 91` of [Bob's source](<htb24/source/bob>), we only need to recover the basis involved in non-ambiguous frames. Fortunately, those are exactly the ones that we can recover.
 
 Notice that `self.measurement_basis` is only used in one other function:
 
@@ -142,7 +142,7 @@ def compute_sifting_strings(self, frames):
 
     return sifting_strings
 ```
-On the other hand, `compute_sifting_strings` is only called once in [server.py](<htb24/source/server.py>), in order to compute `bob_sifting_strings`. Note that only the output only includes the values of this dictionary.
+On the other hand, `compute_sifting_strings` is only called once in [server](<htb24/source/server>), in order to compute `bob_sifting_strings`. Note that only the output only includes the values of this dictionary.
 
 ### Recovering Bob's Sifting Strings
 
@@ -220,7 +220,7 @@ Therefore, now we have all we need to generate the shared key and get the flag!
 
 ## Conclusion
 
-The solution script can be found [here](<htb24/solve.py>).
+The solution script can be found [here](<htb24/solve>).
 
 ```shell
 $ python3 solve.py 
