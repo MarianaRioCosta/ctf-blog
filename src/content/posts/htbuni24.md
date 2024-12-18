@@ -38,7 +38,7 @@ The first thing we noticed was the comment in line 15 of [server.py](<https://se
 The paper presents a integral method for Quantum Key Distribution (QKD). By comparing it with the source, we see that the challenge relies on the implementation of the sifting framed protocol (section 5.4). Let's dive into it:
 
 1. Alice prepares and sends to Bob a pair of non-orthogonal qubits over the quantum channel.
-She chooses a pair randomly between \\((\ket{0}_X, \ket{0}_Z)\\), \\((\ket{0}_X, \ket{1}_Z)\\), \\((\ket{1}_X, \ket{0}_Z)\\) and \\((\ket{1}_X, \ket{1}_Z)\\).
+She chooses a pair randomly between $(\ket{0}_X, \ket{0}_Z)$, $(\ket{0}_X, \ket{1}_Z)$, $(\ket{1}_X, \ket{0}_Z)$ and $(\ket{1}_X, \ket{1}_Z)$.
 
 
 | ![non-orthogonal qubits](<htb24/images/qubits.png>) | 
@@ -46,11 +46,11 @@ She chooses a pair randomly between \\((\ket{0}_X, \ket{0}_Z)\\), \\((\ket{0}_X,
 | *non-orthogonal qubits* |
 
 
-2. Bob chooses randomly the measurement basis (\\(X\\) or \\(Z\\)) to measure the incoming pair of non-orthogonal qubits.
+2. Bob chooses randomly the measurement basis ($X$ or $Z$) to measure the incoming pair of non-orthogonal qubits.
 
 3. After several rounds, using a classical channel, Bob announces to Alice the double matching detection events (rounds where Bob measures the same state on both qubits of the pair).
 
-4. Alice computes the usable (\\(f_i\\) where \\(i = 1 \dots 6\\)) and auxiliary (\\(i = 7 \dots 14\\)) frames by iterative over pairs of double matching events. She shuffles that list of frames and sends it to Bob.
+4. Alice computes the usable ($f_i$ where $i = 1 \dots 6$) and auxiliary ($i = 7 \dots 14$) frames by iterative over pairs of double matching events. She shuffles that list of frames and sends it to Bob.
 
 | ![frames](<htb24/images/frames.png>) | 
 |:--:| 
