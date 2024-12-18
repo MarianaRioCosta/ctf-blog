@@ -7,17 +7,9 @@ category: 'Writeups'
 draft: false 
 ---
 
-
 ## Overview
 
 This writeup is also present in my team's website [here](https://sectt.github.io/writeups/HTB24/README).
-
----
-title: Clutch - Hack The Box University CTF 2024
-tags: ["crypto", "htb"]
-date: 2024-12-14
-authors: ["lizardqueen", "ice"]
----
 
 Clutch - Hack The Box University CTF 2024
 
@@ -29,7 +21,7 @@ The last objective is clear: steal the legendary artifact called "The Starry Spu
 
 ## Source
 
-[here](<htb24/code.zip>)
+[here](<https://sectt.github.io/writeups/HTB24/source>)
 
 ## TL;DR
 
@@ -39,14 +31,14 @@ The last objective is clear: steal the legendary artifact called "The Starry Spu
 
 ## The Protocol
 
-The first thing we noticed was the comment in line 15 of [server.py](<htb24/code.zip>)
+The first thing we noticed was the comment in line 15 of [server.py](<https://sectt.github.io/writeups/HTB24/source/server.py>)
 
 `# Python implementation of the Frame-based QKD protocol described here : https://www.mdpi.com/2073-8994/12/6/1053`
 
 The paper presents a integral method for Quantum Key Distribution (QKD). By comparing it with the source, we see that the challenge relies on the implementation of the sifting framed protocol (section 5.4). Let's dive into it:
 
 1. Alice prepares and sends to Bob a pair of non-orthogonal qubits over the quantum channel.
-She chooses a pair randomly between $(\ket{0}_X, \ket{0}_Z)$, $(\ket{0}_X, \ket{1}_Z)$, $(\ket{1}_X, \ket{0}_Z)$ and $(\ket{1}_X, \ket{1}_Z)$.
+She chooses a pair randomly between \\((\ket{0}_X, \ket{0}_Z)\\), \\((\ket{0}_X, \ket{1}_Z)\\), \\((\ket{1}_X, \ket{0}_Z)\\) and \\((\ket{1}_X, \ket{1}_Z)\\).
 
 
 | ![non-orthogonal qubits](<htb24/images/qubits.png>) | 
@@ -54,11 +46,11 @@ She chooses a pair randomly between $(\ket{0}_X, \ket{0}_Z)$, $(\ket{0}_X, \ket{
 | *non-orthogonal qubits* |
 
 
-2. Bob chooses randomly the measurement basis ($X$ or $Z$) to measure the incoming pair of non-orthogonal qubits.
+2. Bob chooses randomly the measurement basis (\\(X\\) or \\(Z\\)) to measure the incoming pair of non-orthogonal qubits.
 
 3. After several rounds, using a classical channel, Bob announces to Alice the double matching detection events (rounds where Bob measures the same state on both qubits of the pair).
 
-4. Alice computes the usable ($f_i$ where $i = 1 \dots 6$) and auxiliary ($i = 7 \dots 14$) frames by iterative over pairs of double matching events. She shuffles that list of frames and sends it to Bob.
+4. Alice computes the usable (\\(f_i\\) where \\(i = 1 \dots 6\\)) and auxiliary (\\(i = 7 \dots 14\\)) frames by iterative over pairs of double matching events. She shuffles that list of frames and sends it to Bob.
 
 | ![frames](<htb24/images/frames.png>) | 
 |:--:| 
@@ -86,7 +78,7 @@ if alice_key != bob_key:
 self.shared_key = alice_key.encode()
 ```
 
-Our exploit uses a flaw in [Bob](<htb24/code.zip>)'s key generation. Let's focus on that part of the code:
+Our exploit uses a flaw in [Bob](<https://sectt.github.io/writeups/HTB24/source/bob.py>)'s key generation. Let's focus on that part of the code:
 
 ### Bob's Key Generation
 
@@ -106,12 +98,12 @@ def generate_shared_key(self, frames, ambiguous_frames, sifting_strings):
     return shared_secret
 ```
 
-This function only depends on it's arguments (`frames`, `ambiguous_frames` and `sifting_strings`), some hardcoded constants (`BOB_MR_DERIVATION` and `KEY_DERIVATION`, which are given to us in the [helpers](<htb24/code.zip>)), and `self.measurement_basis`, which we will recover. 
+This function only depends on it's arguments (`frames`, `ambiguous_frames` and `sifting_strings`), some hardcoded constants (`BOB_MR_DERIVATION` and `KEY_DERIVATION`, which are given to us in the [helpers](<https://sectt.github.io/writeups/HTB24/source/helpers.py>)), and `self.measurement_basis`, which we will recover. 
 
 ### Analysing the use of Bob's Measurement Basis
 
 The `measurement_basis` seems to be chosen securely. 
-According to `line 91` of [Bob's source](<htb24/code.zip>), we only need to recover the basis involved in non-ambiguous frames. Fortunately, those are exactly the ones that we can recover.
+According to `line 91` of [Bob's source](<https://sectt.github.io/writeups/HTB24/source/bob.py>), we only need to recover the basis involved in non-ambiguous frames. Fortunately, those are exactly the ones that we can recover.
 
 Notice that `self.measurement_basis` is only used in one other function:
 
@@ -142,7 +134,7 @@ def compute_sifting_strings(self, frames):
 
     return sifting_strings
 ```
-On the other hand, `compute_sifting_strings` is only called once in [server](<htb24/code.zip>), in order to compute `bob_sifting_strings`. Note that only the output only includes the values of this dictionary.
+On the other hand, `compute_sifting_strings` is only called once in [server.py](<https://sectt.github.io/writeups/HTB24/source/server.py>), in order to compute `bob_sifting_strings`. Note that only the output only includes the values of this dictionary.
 
 ### Recovering Bob's Sifting Strings
 
@@ -220,7 +212,7 @@ Therefore, now we have all we need to generate the shared key and get the flag!
 
 ## Conclusion
 
-The solution script can be found [here](<htb24/code.zip>).
+The solution script can be found [here](<https://sectt.github.io/writeups/HTB24/solve.py>).
 
 ```shell
 $ python3 solve.py 
