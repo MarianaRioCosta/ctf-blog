@@ -28,6 +28,7 @@ const oklchToHex = (str) => {
 export default defineConfig({
   site: "https://ctf.l1z4rdq.com",
   base: "/",
+  assetsInclude: ["**/*.zip", "**/*.py"],
   integrations: [
     tailwind(),
     swup({
