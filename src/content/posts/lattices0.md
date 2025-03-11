@@ -1,5 +1,5 @@
 ---
-title: Lattices - Part 0
+title: Lattices 101
 published: 2024-06-24
 description: Introduction to lattice reductions and solving a CTF Challenge
 tags: [Crypto, Lattices, LLL]
@@ -8,7 +8,7 @@ draft: True
 ---
 
 
-`This is the first of a series of posts on lattice-based cryptography.`
+`This is the first of (hopefully) a series of posts on lattice-based cryptography.`
 
 ## Lattices?
 
@@ -96,31 +96,9 @@ The first condition constrains the lengths of the basis vectors, but it does not
 The second condition addresses this issue by setting a more localized condition between consecutive Gram-Schmidt vectors. It essentially ensures that the second vector is not significantly shorter than the first.
 
 
+## Solving linear systems of equations with LLL
 
-## Other Lattice Reduction Algorithms
-
-* **HKZ**, Hermite–Korkine–Zolotarev: Exponential time, $ \|\mathbf{b}'_1\| = \lambda_1(\mathcal{L}) $
-
-* **BKZ**, Block (H)KZ: Parametrized by block size $ \beta $, Larger $ \beta $: slower, Smaller $ \beta $: worse basis
-
-* Sieving and other costly approaches
-
-
-## Why and when to use Lattices in CTF's?
-
-Due to their structure and properties, lattices end up being massive destruction tools in CTF challenges. 
-
-For instance, lattices and help break challenges that use:
-
-* Biased PRNG
-* Lost precision in your floating points calculations
-* Wrong private RSA keys
-* Solving Linear Modular equations with small solutions (e.g.m coppersmith)
-* Knapsack 
-* Low-density Subset Sum
-* known LSB or MSB of RSA priv key
-* LWE and other post-quantum implementations
-* ... 
+see https://magicfrank00.github.io/writeups/posts/lll-to-solve-linear-equations/
 
 ## Example: Solving a basic challenge
 
@@ -165,6 +143,32 @@ print(int(m).to_bytes((m.bit_length() + 7) // 8, "big"))
 ```
 
 `b'ictf{can_you_break_sin_or_cos_too?}'`
+
+
+## Other Lattice Reduction Algorithms
+
+* **HKZ**, Hermite–Korkine–Zolotarev: Exponential time, $ \|\mathbf{b}'_1\| = \lambda_1(\mathcal{L}) $
+
+* **BKZ**, Block (H)KZ: Parametrized by block size $ \beta $, Larger $ \beta $: slower, Smaller $ \beta $: worse basis
+
+* Sieving and other costly approaches
+
+
+## Why and when to use Lattices in CTF's?
+
+Due to their structure and properties, lattices end up being massive destruction tools in CTF challenges. 
+
+For instance, lattices and help break challenges that use:
+
+* Biased PRNG
+* Lost precision in your floating points calculations
+* Wrong private RSA keys
+* Solving Linear Modular equations with small solutions (e.g.m coppersmith)
+* Knapsack 
+* Low-density Subset Sum
+* known LSB or MSB of RSA priv key
+* LWE and other post-quantum implementations
+* ... 
 
 
 ## Other techniques and tricks
