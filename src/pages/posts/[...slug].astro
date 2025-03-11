@@ -19,8 +19,6 @@ export async function getStaticPaths() {
     const arr = blogEntries.map(entry => ({
         params: { slug: entry.slug }, props: { entry },
     }));
-    
-    arr.push({ params: { slug: 'htb24/source' } });
 
     return arr;
 }

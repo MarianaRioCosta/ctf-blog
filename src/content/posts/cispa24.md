@@ -13,7 +13,7 @@ In the past few days I've been at this year's CISPA (Helmholtz Center for Inform
 
 ### Description:
 
-The main goal of the challenge was to implement the ROS (**R**andom inhomogeneities in an **O**verdetermined **S**olvable system of linear equations) attack to forge Schnorr’s blind signatures, and therefore break unforgeability. This attack is well explained in [this paper](https://eprint.iacr.org/2020/945.pdf) by Julian Loss, one of the speakers in the school. The paper already includes an implementation of the attack, but in the addictive notation. Our generator implied implementing the attack on a multiplicative notation. 
+The main goal of the challenge was to implement the ROS (**R**andom inhomogeneities in an **O**verdetermined **S**olvable system of linear equations) attack to forge Schnorr’s blind signatures, and therefore break unforgeability. This attack is well explained in [this paper](https://eprint.iacr.org/2020/945.pdf). The paper already includes an implementation of the attack, but in the addictive notation. Our generator implied implementing the attack on a multiplicative notation. 
 
 ### Source
 
