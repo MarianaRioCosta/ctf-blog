@@ -1,20 +1,17 @@
 # About
 
+Master of Logic @ ILLC, University of Amsterdam
+
+
 Team Captain and CTF player @ STT
-
 TeamPortugal @ ECSC 2023, 2024 
-
 TeamEurope @ ICC 2024 
-
 TeamEurope Captain @ Kunoichi Cyber Games 2024 
 
-Mathematics and Computation Student - 3nd year, bachelors @ IST - Lisbon
 
-I'm mostly interested in post-quantum cryptography, mainly lattices and codes.
+I'm mostly interested in theoretical CS, mainly cryptography, quantum computing, complexity and information theory.
 
 Feel free to contact me at ctf@l1z4rdq.com
-
-Here's me on [Cryptohack](https://cryptohack.org/user/lizardqueen/):)
 
 
 > ### Source of the avatar
