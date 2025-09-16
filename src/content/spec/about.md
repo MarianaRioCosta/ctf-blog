@@ -4,8 +4,11 @@ Master of Logic @ ILLC, University of Amsterdam
 
 
 Team Captain and CTF player @ STT
+
 TeamPortugal @ ECSC 2023, 2024 
+
 TeamEurope @ ICC 2024 
+
 TeamEurope Captain @ Kunoichi Cyber Games 2024 
 
 
